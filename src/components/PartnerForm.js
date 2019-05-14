@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-import validarCpf from 'validar-cpf'
 import InputMask from 'react-input-mask'
 
 export default class PartnerForm extends React.Component {
@@ -39,13 +38,34 @@ export default class PartnerForm extends React.Component {
             this.setState({ picture })
         }
     }
+    validateId = (input) => {
+        const cpf = input.replace(/\D/g, '');
+        if (cpf === '' || cpf.length !== 11 || !/^\d{11}$/.test(cpf)) {
+            return false;
+        }
+        const digits = cpf.split('').map(x => parseInt(x));
+        for (let j = 0; j < 2; j++) {
+            let sum = 0;
+            for (let i = 0; i < 9 + j; i++) {
+                sum += digits[i] * (10 + j - i);
+            }
+            let checkDigit = 11 - (sum % 11);
+            if (checkDigit === 10 || checkDigit === 11) {
+                checkDigit = 0;
+            }
+            if (checkDigit !== digits[9 + j]) {
+                return false;
+            }
+        }
+        return true;
+    }
     onSubmit = (e) => {
         e.preventDefault()
         if (!this.state.nationality || !this.state.zip || !this.state.neighborhood || !this.state.number || !this.state.addressLine1 || !this.state.phone || !this.state.name || !this.state.gender) {
             this.setState({ error: 'Por favor, complete todas as informações para o cadastro' })
         }  else if (!this.state.email.match(/(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i)) {
             this.setState({ error: 'Por favor, preencha o local indicado para e-mail com um endereço de e-mail válido'})
-        } else if (!validarCpf(this.state.id)) {
+        } else if (!this.validateId(this.state.id)) {
             this.setState({ error: 'Por favor, preencha o local indicado para CPF com um número de CPF válido'})
         } else if (!moment(this.state.birth, 'DD-MM-YYYY').isValid()) {
             this.setState({ error: 'Por favor, preencha o local indicado para nascimento com uma data válida'})
