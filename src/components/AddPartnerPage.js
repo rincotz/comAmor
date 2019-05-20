@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import PartnerForm from "./PartnerForm";
-import { addPartner } from "../actions/partners";
+import { startAddPartner } from "../actions/partners";
 
 export class AddPartnerPage extends React.Component {
     onSubmit = (partner) => {
-        this.props.addPartner(partner)
+        this.props.startAddPartner(partner)
         this.props.history.push('/')
     }
     render() {
@@ -21,7 +21,7 @@ export class AddPartnerPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addParter: (partner) => dispatch(addPartner(partner))
+    startAddPartner: (partner) => dispatch(startAddPartner(partner))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddPartnerPage);

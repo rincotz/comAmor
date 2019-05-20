@@ -506,7 +506,7 @@ exports[`should render MealForm with defaults 1`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <label>
@@ -602,7 +602,7 @@ exports[`should render MealForm with defaults 1`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <label>
@@ -698,7 +698,7 @@ exports[`should render MealForm with defaults 1`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <button>
@@ -859,7 +859,7 @@ exports[`should render error for invalid form submission 1`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <label>
@@ -955,7 +955,7 @@ exports[`should render error for invalid form submission 1`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <label>
@@ -1051,7 +1051,7 @@ exports[`should render error for invalid form submission 1`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <button>
@@ -1215,7 +1215,7 @@ exports[`should render error for invalid form submission 2`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <label>
@@ -1311,7 +1311,7 @@ exports[`should render error for invalid form submission 2`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <label>
@@ -1407,7 +1407,7 @@ exports[`should render error for invalid form submission 2`] = `
         showSecond={false}
         style={Object {}}
         use12Hours={false}
-        value={"1970-01-01T00:00:00.000Z"}
+        value={"1970-01-01T02:00:00.000Z"}
       />
     </label>
     <button>

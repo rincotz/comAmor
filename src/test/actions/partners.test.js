@@ -1,7 +1,25 @@
-import { addPartner, editPartner, removePartner } from "../../actions/partners"
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import { startAddPartner, addPartner, editPartner, removePartner } from "../../actions/partners"
 import { ADD_PARTNER, EDIT_PARTNER, REMOVE_PARTNER } from "../../actions/constants";
+import partners from '../fixtures/partners'
+import db from '../../firebase/firebase'
+
+const createMockStore = configureMockStore([thunk])
 
 test('should setup add partner action object with provided values', () => {
+    const action = addPartner(partners[0])
+    expect(action).toEqual({
+        type: ADD_PARTNER,
+        partner: {
+            uid: expect.any(String),
+            ...partners[0]
+        }
+    })
+})
+
+test('should add partner to database and store', (done) => {
+    const store = createMockStore({})
     const partnerData = {
         id: '355.935.868-02',
         name: 'Luís Felipe',
@@ -18,13 +36,19 @@ test('should setup add partner action object with provided values', () => {
         zip: '18120-000',
         picture: ''
     }
-    const action = addPartner(partnerData)
-    expect(action).toEqual({
-        type: ADD_PARTNER,
-        partner: {
-            uid: expect.any(String),
-            ...partnerData
-        }
+    store.dispatch(startAddPartner(partnerData)).then(() => {
+        const actions = store.getActions()
+        expect(actions[0]).toEqual({
+            type: ADD_PARTNER,
+            partner: {
+                uid: expect.any(String),
+                ...partnerData
+            }
+        })
+        db.collection('partners').doc(actions[0].partner.uid).get().then((doc) => {
+            expect(doc.data()).toEqual(partnerData)
+            done()
+        })
     })
 })
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import MealForm from "./MealForm";
-import { addMeal } from "../actions/meals";
+import { startAddMeal } from "../actions/meals";
 
 export class AddMealPage extends React.Component {
     onSubmit = (meal) => {
-        this.props.addMeal(meal)
+        this.props.startAddMeal(meal)
         this.props.history.push('/')
     }
     render() {
@@ -21,7 +21,7 @@ export class AddMealPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addMeal: (meal) => dispatch(addMeal(meal))
+    startAddMeal: (meal) => dispatch(startAddMeal(meal))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddMealPage)

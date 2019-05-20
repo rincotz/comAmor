@@ -12,16 +12,16 @@ export default class MealForm extends React.Component {
             description: props.meal ? props.meal.description : '',
             price: props.meal ? (props.meal.price / 100).toString() : undefined,
             available: props.meal ? props.meal.available : undefined,
-            location: props.meal ? props.meal.location : undefined,
+            location: props.meal ? props.meal.location : '',
             courrier: props.meal ? props.meal.courrier : false,
-            courrierStart: props.meal ? moment(props.meal.courrierStart*1000) : undefined,
-            courrierEnd: props.meal ? moment(props.meal.courrierEnd*1000) : undefined,
+            courrierStart: props.meal ? moment(props.meal.courrierStart*1000) : moment(),
+            courrierEnd: props.meal ? moment(props.meal.courrierEnd*1000) : moment().add(2,'hours').startOf('hour'),
             pickUp: props.meal ? props.meal.pickUp : false,
-            pickUpStart: props.meal ? moment(props.meal.pickUpStart*1000) : undefined,
-            pickUpEnd: props.meal ? moment(props.meal.pickUpEnd*1000) : undefined,
+            pickUpStart: props.meal ? moment(props.meal.pickUpStart*1000) : moment(),
+            pickUpEnd: props.meal ? moment(props.meal.pickUpEnd*1000) : moment().add(2,'hours').startOf('hour'),
             table: props.meal ? props.meal.table : false,
-            tableStart: props.meal ? moment(props.meal.tableStart*1000) : undefined,
-            tableEnd: props.meal ? moment(props.meal.tableEnd*1000) : undefined,
+            tableStart: props.meal ? moment(props.meal.tableStart*1000) : moment(),
+            tableEnd: props.meal ? moment(props.meal.tableEnd*1000) : moment().add(2,'hours').startOf('hour'),
             frozen: props.meal ? props.meal.frozen : false,
             picture: props.meal ? props.meal.picture : '',
             error: ''
@@ -51,22 +51,22 @@ export default class MealForm extends React.Component {
         this.setState({ [name]: checked, tableStart: moment().valueOf() })
     }
     onCourrierStartChange = (courrierStart) => {
-        this.setState({ courrierStart: courrierStart.valueOf() })
+        this.setState({ courrierStart })
     }
     onCourrierEndChange = (courrierEnd) => {
-        this.setState({ courrierEnd: courrierEnd.valueOf() })
+        this.setState({ courrierEnd })
     }
     onPickUpStartChange = (pickUpStart) => {
-        this.setState({ pickUpStart: pickUpStart.valueOf() })
+        this.setState({ pickUpStart })
     }
     onPickUpEndChange = (pickUpEnd) => {
-        this.setState({ pickUpEnd: pickUpEnd.valueOf() })
+        this.setState({ pickUpEnd })
     }
     onTableStartChange = (tableStart) => {
-        this.setState({ tableStart: tableStart.valueOf() })
+        this.setState({ tableStart })
     }
     onTableEndChange = (tableEnd) => {
-        this.setState({ tableEnd: tableEnd.valueOf() })
+        this.setState({ tableEnd })
     }
     onSubmit = (e) => {
         e.preventDefault()
@@ -91,14 +91,14 @@ export default class MealForm extends React.Component {
                 available: parseInt(this.state.available),
                 location: this.state.location,
                 courrier: this.state.courrier,
-                courrierStart: this.state.courrierStart,
-                courrierEnd: this.state.courrierEnd,
+                courrierStart: this.state.courrierStart.valueOf(),
+                courrierEnd: this.state.courrierEnd.valueOf(),
                 pickUp: this.state.pickUp,
-                pickUpStart: this.state.pickUpStart,
-                pickUpEnd: this.state.pickUpEnd,
+                pickUpStart: this.state.pickUpStart.valueOf(),
+                pickUpEnd: this.state.pickUpEnd.valueOf(),
                 table: this.state.table,
-                tableStart: this.state.tableStart,
-                tableEnd: this.state.tableEnd,
+                tableStart: this.state.tableStart.valueOf(),
+                tableEnd: this.state.tableEnd.valueOf(),
                 frozen: this.state.frozen,
                 picture: this.state.picture
             })

@@ -3,12 +3,12 @@ import { shallow } from 'enzyme/build'
 import { AddMealPage } from "../../components/AddMealPage";
 import meals from '../fixtures/meals'
 
-let addMeal, history, wrapper
+let startAddMeal, history, wrapper
 
 beforeEach(() => {
-    addMeal = jest.fn()
+    startAddMeal = jest.fn()
     history = { push: jest.fn() }
-    wrapper = shallow(<AddMealPage addMeal={addMeal} history={history} />)
+    wrapper = shallow(<AddMealPage startAddMeal={startAddMeal} history={history} />)
 })
 
 test('should render AddPartnerPage correctly', () => {
@@ -18,5 +18,5 @@ test('should render AddPartnerPage correctly', () => {
 test('should handle onSubmit', () => {
     wrapper.find('MealForm').prop('onSubmit')(meals[1])
     expect(history.push).toHaveBeenLastCalledWith('/')
-    expect(addMeal).toHaveBeenLastCalledWith(meals[1])
+    expect(startAddMeal).toHaveBeenLastCalledWith(meals[1])
 })

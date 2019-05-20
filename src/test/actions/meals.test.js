@@ -1,7 +1,25 @@
-import { addMeal, editMeal, removeMeal } from "../../actions/meals"
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import { startAddMeal, addMeal, editMeal, removeMeal } from "../../actions/meals"
 import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "../../actions/constants";
+import meals from '../fixtures/meals'
+import db from '../../firebase/firebase'
+
+const createMockStore = configureMockStore([thunk])
 
 test('should setup add expense action object with provided values', () => {
+    const action = addMeal(meals[0])
+    expect(action).toEqual({
+        type: ADD_MEAL,
+        meal: {
+            id: expect.any(String),
+            ...meals[0]
+        }
+    })
+})
+
+test('should add meal to database and store', (done) => {
+    const store = createMockStore({})
     const mealData = {
         name: 'pf de frango',
         description: 'arroz, feijões e filé de frango',
@@ -12,21 +30,27 @@ test('should setup add expense action object with provided values', () => {
         courrierStart: 0,
         courrierEnd: 0,
         pickUp: false,
-        pickUpStart: undefined,
-        pickUpEnd: undefined,
+        pickUpStart: 0,
+        pickUpEnd: 0,
         table: false,
-        tableStart: undefined,
-        tableEnd: undefined,
+        tableStart: 0,
+        tableEnd: 0,
         frozen: false,
         picture: ''
     }
-    const action = addMeal(mealData)
-    expect(action).toEqual({
-        type: ADD_MEAL,
-        meal: {
-            id: expect.any(String),
-            ...mealData
-        }
+    store.dispatch(startAddMeal(mealData)).then(() => {
+        const actions = store.getActions()
+        expect(actions[0]).toEqual({
+            type: ADD_MEAL,
+            meal: {
+                id: expect.any(String),
+                ...mealData
+            }
+        })
+        db.collection('meals').doc(actions[0].meal.id).get().then((doc) => {
+            expect(doc.data()).toEqual(mealData)
+            done()
+        })
     })
 })
 

@@ -3,12 +3,12 @@ import { shallow } from 'enzyme/build'
 import { AddPartnerPage } from "../../components/AddPartnerPage"
 import partners from '../fixtures/partners'
 
-let addPartner, history, wrapper
+let startAddPartner, history, wrapper
 
 beforeEach(() => {
-    addPartner = jest.fn()
+    startAddPartner = jest.fn()
     history = { push: jest.fn() }
-    wrapper = shallow(<AddPartnerPage addPartner={addPartner} history={history} />)
+    wrapper = shallow(<AddPartnerPage startAddPartner={startAddPartner} history={history} />)
 })
 
 test('should render AddPartnerPage correctly', () => {
@@ -18,5 +18,5 @@ test('should render AddPartnerPage correctly', () => {
 test('should handle onSubmit', () => {
     wrapper.find('PartnerForm').prop('onSubmit')(partners[1])
     expect(history.push).toHaveBeenLastCalledWith('/')
-    expect(addPartner).toHaveBeenLastCalledWith(partners[1])
+    expect(startAddPartner).toHaveBeenLastCalledWith(partners[1])
 })
