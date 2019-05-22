@@ -1,6 +1,6 @@
 import React from 'react';
 import MealForm from "./MealForm";
-import { editMeal, removeMeal } from "../actions/meals";
+import { editMeal, startRemoveMeal } from "../actions/meals";
 import { connect } from "react-redux";
 
 export class EditMealPage extends React.Component {
@@ -9,7 +9,7 @@ export class EditMealPage extends React.Component {
         this.props.history.push('/')
     }
     onRemove = () => {
-        this.props.removeMeal({ id: this.props.meal.id })
+        this.props.startRemoveMeal({ id: this.props.meal.id })
         this.props.history.push('/')
     }
     render() {
@@ -35,7 +35,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
     editMeal: (id, meal) => dispatch(editMeal(id, meal)),
-    removeMeal: (data) => dispatch(removeMeal(data))
+    startRemoveMeal: (data) => dispatch(startRemoveMeal(data))
 })
 
 export default connect(mapStateToProps)(EditMealPage)

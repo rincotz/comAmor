@@ -3,17 +3,17 @@ import { shallow } from 'enzyme'
 import { EditMealPage } from "../../components/EditMealPage"
 import meals from '../fixtures/meals'
 
-let editMeal, removeMeal, history, wrapper
+let editMeal, startRemoveMeal, history, wrapper
 
 beforeEach(() => {
     editMeal = jest.fn()
-    removeMeal = jest.fn()
+    startRemoveMeal = jest.fn()
     history = { push: jest.fn() }
     wrapper = shallow(
         <EditMealPage
             meal={meals[2]}
             editMeal={editMeal}
-            removeMeal={removeMeal}
+            startRemoveMeal={startRemoveMeal}
             history={history}
         />
     )
@@ -29,8 +29,8 @@ test('should render EditMealPage correctly', () => {
 //     expect(editMeal).toHaveBeenLastCalledWith(meals[2].id, meals[2])
 // })
 
-// test('should handle delete meal', () => {
+// test('should handle startRemoveMeal', () => {
 //     wrapper.find('button').simulate('click')
 //     expect(history.push).toHaveBeenLastCalledWith('/')
-//     expect(removeMeal).toHaveBeenLastCalledWith({ id: meals[2].id })
+//     expect(startRemoveMeal).toHaveBeenLastCalledWith({ id: meals[2].id })
 // })

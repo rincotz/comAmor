@@ -70,6 +70,13 @@ export const removeMeal = ({ id }) => ({
     id
 })
 
+export const startRemoveMeal = ({ id }) => {
+    return (dispatch) => {
+        return db.collection('meals').doc(id).delete()
+            .then(dispatch(removeMeal({ id })))
+    }
+}
+
 // SET_MEALS
 export const setMeals = (meals) => ({
     type: SET_MEALS,
