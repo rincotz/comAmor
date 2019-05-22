@@ -1,11 +1,52 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { startRemoveMeal, startAddMeal, addMeal, editMeal, removeMeal, setMeals } from "../../actions/meals"
+import { startEditMeal, startRemoveMeal, startAddMeal, addMeal, editMeal, removeMeal, setMeals } from "../../actions/meals"
 import {ADD_MEAL, EDIT_MEAL, REMOVE_MEAL, SET_MEALS} from "../../actions/constants";
 import meals from '../fixtures/meals'
 import db from '../../firebase/firebase'
 
 const createMockStore = configureMockStore([thunk])
+
+beforeEach((done) => {
+    const mealsData = {}
+    meals.forEach(({ id,
+                   name,
+                   description,
+                   price,
+                   available,
+                   location,
+                   courrier,
+                   courrierStart,
+                   courrierEnd,
+                   pickUp,
+                   pickUpStart,
+                   pickUpEnd,
+                   table,
+                   tableStart,
+                   tableEnd,
+                   frozen,
+                   picture
+    }) => {
+        return db.collection('meals').doc(id).set({ name,
+            description,
+            price,
+            available,
+            location,
+            courrier,
+            courrierStart,
+            courrierEnd,
+            pickUp,
+            pickUpStart,
+            pickUpEnd,
+            table,
+            tableStart,
+            tableEnd,
+            frozen,
+            picture
+        })
+        done()
+    })
+})
 
 test('should setup add expense action object with provided values', () => {
     const action = addMeal(meals[0])
@@ -62,6 +103,24 @@ test('should setup edit meal action object', () => {
         updates: {
             description: 'filé de frango empanado e frito'
         }
+    })
+})
+
+test('should edit expenses from firebase', (done) => {
+    const store = createMockStore({})
+    const id = meals[1].id
+    const updates = { available: 9 }
+    store.dispatch(startEditMeal(id, updates)).then(() => {
+        const actions = store.getActions()
+        expect(actions[0].toEqual({
+            type: EDIT_MEAL,
+            id,
+            updates
+        }))
+        return db.collection('expenses').doc(id).get().then((doc) => {
+            expect(doc.data().available).toBe(updates.available)
+            done()
+        })
     })
 })
 

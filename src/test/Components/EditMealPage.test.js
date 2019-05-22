@@ -3,16 +3,16 @@ import { shallow } from 'enzyme'
 import { EditMealPage } from "../../components/EditMealPage"
 import meals from '../fixtures/meals'
 
-let editMeal, startRemoveMeal, history, wrapper
+let startEditMeal, startRemoveMeal, history, wrapper
 
 beforeEach(() => {
-    editMeal = jest.fn()
+    startEditMeal = jest.fn()
     startRemoveMeal = jest.fn()
     history = { push: jest.fn() }
     wrapper = shallow(
         <EditMealPage
             meal={meals[2]}
-            editMeal={editMeal}
+            startEditMeal={startEditMeal}
             startRemoveMeal={startRemoveMeal}
             history={history}
         />

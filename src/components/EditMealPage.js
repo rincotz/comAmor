@@ -1,11 +1,11 @@
 import React from 'react';
 import MealForm from "./MealForm";
-import { editMeal, startRemoveMeal } from "../actions/meals";
+import { startEditMeal, startRemoveMeal } from "../actions/meals";
 import { connect } from "react-redux";
 
 export class EditMealPage extends React.Component {
     onSubmit = (meal) => {
-        this.props.editMeal(this.props.meal.id, meal)
+        this.props.startEditMeal(this.props.meal.id, meal)
         this.props.history.push('/')
     }
     onRemove = () => {
@@ -34,8 +34,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-    editMeal: (id, meal) => dispatch(editMeal(id, meal)),
+    startEditMeal: (id, meal) => dispatch(startEditMeal(id, meal)),
     startRemoveMeal: (data) => dispatch(startRemoveMeal(data))
 })
 
-export default connect(mapStateToProps)(EditMealPage)
+export default connect(mapStateToProps, mapDispatchToProps)(EditMealPage)

@@ -64,6 +64,15 @@ export const editMeal = (id, updates) => ({
     updates
 })
 
+export const startEditMeal = (id, updates) => {
+    return (dispatch) => {
+        return db.collection('meals').doc(id).update(updates)
+            .then(() => {
+                dispatch(editMeal(id, updates))
+            })
+    }
+}
+
 // REMOVE_MEAL
 export const removeMeal = ({ id }) => ({
     type: REMOVE_MEAL,

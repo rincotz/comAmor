@@ -1,15 +1,15 @@
 import React from 'react'
 import PartnerForm from "./PartnerForm";
-import { editPartner, removePartner } from "../actions/partners";
+import { startEditPartner, startRemovePartner } from "../actions/partners";
 import { connect } from 'react-redux'
 
 export class EditPartnerPage extends React.Component {
     onSubmit = (partner) => {
-        this.props.editPartner(this.props.partner.uid, partner)
+        this.props.startEditPartner(this.props.partner.uid, partner)
         this.props.history.push('/')
     }
     onRemove = () => {
-        this.props.removePartner({ uid: this.props.partner.uid })
+        this.props.startRemovePartner({ uid: this.props.partner.uid })
         this.props.history.push('/')
     }
     render() {
@@ -32,8 +32,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-    editPartner: (uid, partner) => dispatch(editPartner(uid, partner)),
-    removePartner: (data) => dispatch(removePartner(data))
+    startEditPartner: (uid, partner) => dispatch(startEditPartner(uid, partner)),
+    startRemovePartner: (data) => dispatch(startRemovePartner(data))
 })
 
-export default connect(mapStateToProps)(EditPartnerPage)
+export default connect(mapStateToProps, mapDispatchToProps)(EditPartnerPage)

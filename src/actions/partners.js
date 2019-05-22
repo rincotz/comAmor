@@ -60,8 +60,24 @@ export const editPartner = (uid, updates) => ({
     updates
 })
 
+export const startEditPartner = (uid, updates) => {
+    return (dispatch) => {
+        return db.collection('partners').doc(uid).update(updates)
+            .then(() => {
+                dispatch(editPartner(uid, updates))
+            })
+    }
+}
+
 //REMOVE_PARTNER
 export const removePartner = ({ uid }) => ({
     type: REMOVE_PARTNER,
     uid
 })
+
+export const startRemovePartner = ({ uid }) => {
+    return (dispatch) => {
+        return db.collection('partners').doc(uid).delete()
+            .then(dispatch(removePartner({ uid })))
+    }
+}
