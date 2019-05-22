@@ -13,17 +13,19 @@ export class EditMealPage extends React.Component {
         this.props.history.push('/')
     }
     render() {
-        <div>
-            <MealForm
-                onSubmit={this.onSubmit}
-                meal={this.props.meal}
-            />
-            <button
-                onClick={this.onRemove}
-            >
-                Remover
-            </button>
-        </div>
+        return (
+            <div>
+                <MealForm
+                    onSubmit={this.onSubmit}
+                    meal={this.props.meal}
+                />
+                <button
+                    onClick={this.onRemove}
+                >
+                    Remover
+                </button>
+            </div>
+        )
     }
 }
 

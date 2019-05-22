@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { startAddMeal, addMeal, editMeal, removeMeal } from "../../actions/meals"
-import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "../../actions/constants";
+import {startAddMeal, addMeal, editMeal, removeMeal, setMeals} from "../../actions/meals"
+import {ADD_MEAL, EDIT_MEAL, REMOVE_MEAL, SET_MEALS} from "../../actions/constants";
 import meals from '../fixtures/meals'
 import db from '../../firebase/firebase'
 
@@ -70,5 +70,13 @@ test('should setup remove meal action object', () => {
     expect(action).toEqual({
         type: REMOVE_MEAL,
         id: '456def'
+    })
+})
+
+test('should set meal action object with data', () => {
+    const action = setMeals(meals)
+    expect(action).toEqual({
+        type: SET_MEALS,
+        meals
     })
 })

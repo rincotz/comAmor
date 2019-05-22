@@ -1,4 +1,4 @@
-import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "../actions/constants";
+import {ADD_MEAL, EDIT_MEAL, REMOVE_MEAL, SET_MEALS} from "../actions/constants";
 
 // Meals Reducer
 const mealsReducerDefaultState = []
@@ -21,6 +21,8 @@ export default (state = mealsReducerDefaultState, action) => {
                     return meal
                 }
             })
+        case SET_MEALS:
+            return action.meals
         default:
             return state
     }

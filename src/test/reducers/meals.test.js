@@ -1,6 +1,6 @@
 import mealsReducer from '../../reducers/meals'
 import meals from '../fixtures/meals'
-import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "../../actions/constants";
+import {ADD_MEAL, EDIT_MEAL, REMOVE_MEAL, SET_MEALS} from "../../actions/constants";
 
 test('should set default state', () => {
     const state = mealsReducer(undefined, { type: '@@INIT' })
@@ -60,4 +60,13 @@ test('should not edit expense if expense not found', () => {
     }
     const state = mealsReducer(meals, action)
     expect(state).toEqual(meals)
+})
+
+test('should setup set meals action object with data', () => {
+    const action = {
+        type: SET_MEALS,
+        meals: [meals[1]]
+    }
+    const state = mealsReducer(meals, action)
+    expect(state).toEqual([meals[1]])
 })

@@ -1,5 +1,5 @@
 import db from '../firebase/firebase'
-import { ADD_MEAL, EDIT_MEAL, REMOVE_MEAL } from "./constants";
+import {ADD_MEAL, EDIT_MEAL, REMOVE_MEAL, SET_MEALS} from "./constants";
 
 // ADD_MEAL
 export const addMeal = (meal) => ({
@@ -69,3 +69,26 @@ export const removeMeal = ({ id }) => ({
     type: REMOVE_MEAL,
     id
 })
+
+// SET_MEALS
+export const setMeals = (meals) => ({
+    type: SET_MEALS,
+    meals
+})
+
+export const startSetMeals = () => {
+    return (dispatch) => {
+        return db.collection('meals')
+            .get()
+            .then((querySnapshot) => {
+                const meals = []
+                querySnapshot.forEach((doc) => {
+                    meals.push({
+                        id: doc.id,
+                        ...doc.data()
+                    })
+                })
+                dispatch(setMeals(meals))
+            })
+    }
+}
