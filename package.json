@@ -1,6 +1,9 @@
 {
   "name": "comAmor",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.0"
+  },
   "main": "index.js",
   "author": "Luís Felipe Spínola",
   "license": "MIT",
@@ -29,7 +32,6 @@
     "extract-text-webpack-plugin": "3.0.0",
     "firebase": "^6.0.2",
     "moment": "^2.24.0",
-    "node": "10.16.0",
     "node-sass": "^4.11.0",
     "normalize.css": "7.0.0",
     "npm": "6.9.0",
