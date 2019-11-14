@@ -30,7 +30,6 @@ const Header= (props) => {
     const [open, setOpen] = useState(false)
     let [isLoggedIn, setLogin] = useState(false)
     useEffect(() => {
-        console.log(props.isLoggedIn())
         isLoggedIn = auth.onAuthStateChanged(user => {
             if (user) {
                 props.startSetPartner(user.uid)

@@ -2,39 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9fb0c8f7-0a41-4823-b477-50191e4c8b76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/LoginDialog/LoginDialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MealDashboard/MealDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/meals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/meals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/partners.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/partners.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddMealPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddMealPage/AddMealPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddPartnerPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddPartnerPage/AddPartnerPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditMealPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditMealPage/EditMealPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditPartnerPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditPartnerPage/EditPartnerPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MealDashboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MealForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MealList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MealList/MealList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MealListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MealListItem/MealListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PartnerForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/meals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/meals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/partners.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/partners.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/AppRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/configureStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/configureStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/AddMealPage.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/AddMealPage.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/AddPartnerPage.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/AddPartnerPage.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/EditMealPage.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/EditMealPage.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/EditPartnerPage.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/EditPartnerPage.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/Footer.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/Footer.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/MealForm.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/MealForm.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Components/PartnerForm.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Components/PartnerForm.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/yarn-error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +115,7 @@
       <workItem from="1572477076786" duration="1699000" />
       <workItem from="1572535602422" duration="23853000" />
       <workItem from="1572978996567" duration="17479000" />
+      <workItem from="1573698600597" duration="1002000" />
     </task>
     <servers />
   </component>
