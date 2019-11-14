@@ -1,26 +1,38 @@
-import { ADD_PARTNER, EDIT_PARTNER, REMOVE_PARTNER } from "../actions/constants"
+import {ADD_PARTNER, EDIT_PARTNER, REMOVE_PARTNER, SET_PARTNER} from "../actions/constants"
 
-// Partners reducer
-const partnersReducerDefaultState = []
-export default (state = partnersReducerDefaultState, action) => {
+// Partner reducer
+export const partnerReducerDefaultState = {
+    uid: "",
+    id: "",
+    name: "",
+    gender: "",
+    birth: "",
+    email: "",
+    phone: "",
+    bio: "",
+    nationality: "",
+    addressLine1: "",
+    addressLine2: "",
+    number: "",
+    neighborhood: "",
+    zip: "",
+    picture: "",
+    geoPoint: "",
+    guestRatings: "",
+    cookerRatings: "",
+    ratings: ""
+}
+export default (state = partnerReducerDefaultState, action) => {
     switch (action.type) {
         case ADD_PARTNER:
-            return [...state, action.partner]
+            return action.partner
         case REMOVE_PARTNER:
-            return state.filter(({ uid }) => (
-                uid !== action.uid
-            ))
+            return partnerReducerDefaultState
         case EDIT_PARTNER:
-            return state.map((partner) => {
-                if (partner.uid === action.uid) {
-                    return {
-                        ...partner,
-                        ...action.updates
-                    }
-                } else {
-                    return partner
-                }
-            })
+            return {
+                ...partner,
+                ...action.updates
+            }
         default:
             return state
     }

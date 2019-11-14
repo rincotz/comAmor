@@ -10,6 +10,7 @@ export const addPartner = (partner) => ({
 export const startAddPartner = (partnerData = {}) => {
     return (dispatch) => {
         const {
+            uid,
             id,
             name,
             gender,
@@ -23,9 +24,14 @@ export const startAddPartner = (partnerData = {}) => {
             number,
             neighborhood,
             zip,
-            picture = ''
+            picture,
+            geoPoint,
+            guestRatings = '',
+            cookerRatings = '',
+            ratings = ''
         } = partnerData
         const partner = {
+            uid,
             id,
             name,
             gender,
@@ -40,15 +46,16 @@ export const startAddPartner = (partnerData = {}) => {
             neighborhood,
             zip,
             picture,
+            geoPoint,
+            guestRatings,
+            cookerRatings,
+            ratings
         }
-
         return db.collection('partners')
-            .add(partner)
+            .doc(partner.uid)
+            .set(partner)
             .then((docref) => {
-                dispatch(addPartner({
-                    uid: docref.id,
-                    ...partner
-                }))
+                console.log(`Sucessfully added partner ${partner.uid}`)
         })
     }
 }
@@ -79,5 +86,16 @@ export const startRemovePartner = ({ uid }) => {
     return (dispatch) => {
         return db.collection('partners').doc(uid).delete()
             .then(dispatch(removePartner({ uid })))
+    }
+}
+
+//SET_PARTNER
+export const startSetPartner = (partnerUID) => {
+    return (dispatch) => {
+        return db.collection('partners').doc(partnerUID)
+            .get()
+            .then((partner) => {
+                dispatch(addPartner(partner.data()))
+            })
     }
 }

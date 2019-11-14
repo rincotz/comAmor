@@ -3,18 +3,22 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore'
+import CssBaseline from '@material-ui/core/CssBaseline';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'rc-time-picker/assets/index.css'
 import './firebase/firebase'
-import {startSetMeals} from "./actions/meals";
+import { startSetMeals } from "./actions/meals";
 
 const store = configureStore()
 
 const jsx = (
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>
+    <React.Fragment>
+        <CssBaseline />
+        <Provider store={store}>
+            <AppRouter />
+        </Provider>
+    </React.Fragment>
 )
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));

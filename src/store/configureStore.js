@@ -9,7 +9,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 export default () => {
     const store = createStore(
         combineReducers({
-            partners: partnersReducer,
+            partner: partnersReducer,
             meals: mealsReducer
         }),
         composeEnhancers(applyMiddleware(thunk))

@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import PartnerForm from "./PartnerForm";
-import { startAddPartner } from "../actions/partners";
+import PartnerForm from "../PartnerForm/PartnerForm";
+import { startAddPartner } from "../../actions/partners";
+
+import FormLabel from '@material-ui/core/FormLabel'
 
 export class AddPartnerPage extends React.Component {
     onSubmit = (partner) => {
@@ -11,7 +13,7 @@ export class AddPartnerPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Complete seu cadastro</h1>
+                <FormLabel component='legend'>Complete seu cadastro</FormLabel>
                 <PartnerForm
                     onSubmit={this.onSubmit}
                 />

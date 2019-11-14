@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import PartnerForm from '../../components/PartnerForm'
+import PartnerForm from '../../containers/PartnerForm/PartnerForm'
 import partners from '../fixtures/partners'
 
 test('should render PartnerForm with defaults', () => {
@@ -17,7 +17,7 @@ test('should render error for invalid form submission', () => {
     const wrapper = shallow(<PartnerForm />)
     expect(wrapper).toMatchSnapshot()
     wrapper.find('form').simulate('submit', { preventDefault: () => {}})
-    expect(wrapper.state('error').length).toBeGreaterThan(0)
+    expect(wrapper.partnerFormState('error').length).toBeGreaterThan(0)
     expect(wrapper).toMatchSnapshot()
 })
 

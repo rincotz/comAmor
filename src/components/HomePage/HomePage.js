@@ -1,6 +1,6 @@
 import React from 'react';
-import MealDashboard from './MealDashboard'
-import MealList from "./MealList";
+import MealDashboard from '../MealDashboard/MealDashboard'
+import MealList from "../../containers/MealList/MealList";
 
 const HomePage = () => (
     <div>

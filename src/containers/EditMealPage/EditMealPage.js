@@ -1,6 +1,6 @@
 import React from 'react';
-import MealForm from "./MealForm";
-import { startEditMeal, startRemoveMeal } from "../actions/meals";
+import MealForm from "../MealForm/MealForm";
+import { startEditMeal, startRemoveMeal } from "../../actions/meals";
 import { connect } from "react-redux";
 
 export class EditMealPage extends React.Component {

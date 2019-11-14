@@ -1,7 +1,8 @@
 import React from 'react'
-import PartnerForm from "./PartnerForm";
-import { startEditPartner, startRemovePartner } from "../actions/partners";
+import PartnerForm from "../PartnerForm/PartnerForm";
+import { startEditPartner, startRemovePartner } from "../../actions/partners";
 import { connect } from 'react-redux'
+import FormLabel from '@material-ui/core/FormLabel'
 
 export class EditPartnerPage extends React.Component {
     onSubmit = (partner) => {
@@ -13,17 +14,20 @@ export class EditPartnerPage extends React.Component {
         this.props.history.push('/')
     }
     render() {
-        <div>
-            <PartnerForm
-                onSubmit={this.onSubmit}
-                partner={this.props.partner}
-            />
-            <button
-                onClick={this.onRemove}
-            >
-                Deletar Conta
-            </button>
-        </div>
+        return (
+            <div>
+                {console.log(this.props.partner)}
+                <PartnerForm
+                    onSubmit={this.onSubmit}
+                    partner={this.props.partner}
+                />
+                <button
+                    onClick={this.onRemove}
+                >
+                    Deletar Conta
+                </button>
+            </div>
+        )
     }
 }
 

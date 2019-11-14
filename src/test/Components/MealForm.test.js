@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import MealForm from '../../components/MealForm'
+import MealForm from '../../containers/MealForm/MealForm'
 import meals from '../fixtures/meals'
 
 test('should render MealForm with defaults', () => {
@@ -19,7 +19,7 @@ test('should render error for invalid form submission', () => {
     wrapper.find('form').simulate('submit', {
         preventDefault: () => {}
     })
-    expect(wrapper.state('error').length).toBeGreaterThan(0)
+    expect(wrapper.partnerFormState('error').length).toBeGreaterThan(0)
     expect(wrapper).toMatchSnapshot()
 })
 

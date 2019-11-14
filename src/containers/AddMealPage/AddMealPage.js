@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import MealForm from "./MealForm";
-import { startAddMeal } from "../actions/meals";
+import FormLabel from '@material-ui/core/FormLabel'
+import MealForm from "../MealForm/MealForm";
+import { startAddMeal } from "../../actions/meals";
+import selectMeals from '../../selectors/selectMeals'
 
 export class AddMealPage extends React.Component {
     onSubmit = (meal) => {
@@ -11,17 +13,22 @@ export class AddMealPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Cadastre seu prato</h1>
+                <FormLabel component='legend'>Cadastre seu prato:</FormLabel>
                 <MealForm
                     onSubmit={this.onSubmit}
+                    partner={this.props.partner}
                 />
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => ({
+    partner: state.partner
+})
+
 const mapDispatchToProps = (dispatch) => ({
     startAddMeal: (meal) => dispatch(startAddMeal(meal))
 })
 
-export default connect(undefined, mapDispatchToProps)(AddMealPage)
+export default connect(mapStateToProps, mapDispatchToProps)(AddMealPage)

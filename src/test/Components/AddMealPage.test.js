@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme/build'
-import { AddMealPage } from "../../components/AddMealPage";
+import { AddMealPage } from "../../containers/AddMealPage/AddMealPage";
 import meals from '../fixtures/meals'
 
 let startAddMeal, history, wrapper

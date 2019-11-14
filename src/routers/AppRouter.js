@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import NotFoundPage from '../components/NotFoundPage';
-import HomePage from '../components/HomePage';
+import HomePage from '../components/HomePage/HomePage';
 import About from '../components/About';
 import HelpPage from '../components/HelpPage';
-import EditMealPage from '../components/EditMealPage';
-import Footer from '../components/Footer';
-import AddMealPage from '../components/AddMealPage'
-import AddPartnerPage from "../components/AddPartnerPage";
-import MealList from "../components/MealList";
-import EditPartnerPage from "../components/EditPartnerPage";
+import EditMealPage from '../containers/EditMealPage/EditMealPage';
+import Footer from '../components/Footer/Footer';
+import AddMealPage from '../containers/AddMealPage/AddMealPage'
+import AddPartnerPage from "../containers/AddPartnerPage/AddPartnerPage";
+import MealList from "../containers/MealList/MealList";
+import EditPartnerPage from "../containers/EditPartnerPage/EditPartnerPage";
+import Header from '../components/Header/Header'
 
 const AppRouter = () => (
     <BrowserRouter>
-      <div>
+      <Fragment>
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path='/cozinhando' component={AddMealPage} />
@@ -31,7 +33,7 @@ const AppRouter = () => (
           <Route component={NotFoundPage} />
         </Switch>
         <Route path="/" component={Footer} />
-      </div>
+      </Fragment>
     </BrowserRouter>
 );
 

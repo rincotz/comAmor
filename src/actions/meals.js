@@ -1,4 +1,4 @@
-import db from '../firebase/firebase'
+import db, { storage, auth, firebase } from '../firebase/firebase'
 import {ADD_MEAL, EDIT_MEAL, REMOVE_MEAL, SET_MEALS} from "./constants";
 
 // ADD_MEAL
@@ -15,6 +15,7 @@ export const startAddMeal = (mealData = {}) => {
             price,
             available,
             location,
+            chef,
             courrier,
             courrierStart,
             courrierEnd,
@@ -25,7 +26,7 @@ export const startAddMeal = (mealData = {}) => {
             tableStart,
             tableEnd,
             frozen,
-            picture = ''
+            picture
         } = mealData
         const meal = {
             name,
@@ -33,6 +34,7 @@ export const startAddMeal = (mealData = {}) => {
             price,
             available,
             location,
+            chef,
             courrier,
             courrierStart,
             courrierEnd,
@@ -55,6 +57,19 @@ export const startAddMeal = (mealData = {}) => {
                 }))
             })
     }
+}
+
+export const getCooker = () => {
+    auth.onAuthStateChanged(cooker => {
+        return db.collection('users').doc(cooker.uid)
+    })
+}
+
+export const addMealPic = (uid, blob, mealImage) => {
+    const storageRef = firebase.storage().ref()
+    storageRef.child(`meals/${uid}`).put(blob, { contentType: mealImage.type }).then(snapshot => {
+        return snapshot.ref.getDownloadURL()
+    })
 }
 
 // EDIT_MEAL

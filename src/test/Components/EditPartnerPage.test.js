@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { EditPartnerPage } from "../../components/EditPartnerPage"
+import { EditPartnerPage } from "../../containers/EditPartnerPage/EditPartnerPage"
 import partners from '../fixtures/partners'
 
 let editPartner, removePartner, history, wrapper
