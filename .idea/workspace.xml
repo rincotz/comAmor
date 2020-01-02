@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9fb0c8f7-0a41-4823-b477-50191e4c8b76" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/partners.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/partners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/AppRouter.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,10 +33,15 @@
   </component>
   <component name="ProjectId" id="1OW20fkFDK5XHasY0bazBTtOvId" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/ImageButton" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Nilda" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -41,6 +50,13 @@
     <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet.jsx" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\routers" />
+      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\containers\PartnerForm" />
+      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src" />
+      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\TextField" />
+      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\HomePage" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\ImageButton" />
       <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\containers\MealForm" />
@@ -48,23 +64,16 @@
       <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\Snackbar" />
       <recent name="C:\Users\lfspi\Documents\Projects\comAmor" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\containers\PartnerForm" />
-      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src" />
-      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\TextField" />
-      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\HomePage" />
-      <recent name="C:\Users\lfspi\Documents\Projects\comAmor\src\components\MealDashboard" />
-    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -115,7 +124,14 @@
       <workItem from="1572477076786" duration="1699000" />
       <workItem from="1572535602422" duration="23853000" />
       <workItem from="1572978996567" duration="17479000" />
-      <workItem from="1573698600597" duration="2062000" />
+      <workItem from="1573698600597" duration="4362000" />
+      <workItem from="1574446953687" duration="10055000" />
+      <workItem from="1575052494323" duration="6613000" />
+      <workItem from="1576160971241" duration="7665000" />
+      <workItem from="1576697945066" duration="79000" />
+      <workItem from="1576698086417" duration="3381000" />
+      <workItem from="1576871109020" duration="4143000" />
+      <workItem from="1577466760588" duration="2113000" />
     </task>
     <servers />
   </component>

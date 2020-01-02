@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'normalize.css/normalize.css';
@@ -20,6 +20,14 @@ const jsx = (
         </Provider>
     </React.Fragment>
 )
+
+let hasRendered = false
+const renderApp = () => {
+    if (hasRendered) {
+        ReactDOM.render(jsx, document.getElementById('app'))
+        hasRendered = true
+    }
+}
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 

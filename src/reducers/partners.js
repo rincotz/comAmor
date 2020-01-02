@@ -1,4 +1,4 @@
-import {ADD_PARTNER, EDIT_PARTNER, REMOVE_PARTNER, SET_PARTNER} from "../actions/constants"
+import {ADD_PARTNER, EDIT_PARTNER, REMOVE_PARTNER } from "../actions/constants"
 
 // Partner reducer
 export const partnerReducerDefaultState = {

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
 
 import NotFoundPage from '../components/NotFoundPage';
 import HomePage from '../components/HomePage/HomePage';
@@ -12,21 +13,25 @@ import AddPartnerPage from "../containers/AddPartnerPage/AddPartnerPage";
 import MealList from "../containers/MealList/MealList";
 import EditPartnerPage from "../containers/EditPartnerPage/EditPartnerPage";
 import Header from '../components/Header/Header'
+import PrivateRoute from './PrivateRoute'
+
+const history = createHistory()
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <Router history={history} >
       <Fragment>
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path='/cozinhando' component={AddMealPage} />
+          <PrivateRoute path='/cozinhando' component={AddMealPage} />
           <Route path='/cadastro' component={AddPartnerPage} />
           <Route path='/refeicoes' component={MealList} />
           <Route path='/cozinhando/porque' component={NotFoundPage} />
           <Route path='/cozinhando/hospitalidade' component={NotFoundPage} />
           <Route path='/cozinhando/responsabilidade' component={NotFoundPage} />
-          <Route path='/edit/:id' component={EditMealPage} />
-          <Route path='/users/:uid' component={EditPartnerPage} />
+          <PrivateRoute path='/editar/usuario/:id' component={EditPartnerPage} />
+          <PrivateRoute path='/editar/refeicao/:id' component={EditMealPage} />
+          <PrivateRoute path='/painel' component={NotFoundPage} />
           <Route path='/sobre' component={About} />
           <Route path='/carreiras' component={NotFoundPage} />
           <Route path='/ajuda' component={HelpPage} />
@@ -34,7 +39,7 @@ const AppRouter = () => (
         </Switch>
         <Route path="/" component={Footer} />
       </Fragment>
-    </BrowserRouter>
+    </Router>
 );
 
-export default AppRouter;
+export { history, AppRouter as default}

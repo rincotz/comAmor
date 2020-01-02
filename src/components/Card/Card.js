@@ -62,6 +62,7 @@ export default function MealCard(props) {
                     image={props.meal.picture}
                 />
                 <CardContent>
+                    <Typography paragraph>R$ {props.meal.price}</Typography>
                     { props.meal.frozen ? <Kitchen /> : <RoomService /> }
                     {
                         props.meal.courrier &&
